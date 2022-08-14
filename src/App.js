@@ -34,7 +34,11 @@ handleAdd=(e)=>{
   if(todo.action!==""){
     this.setState({
     tasks:[todo,...this.state.tasks],
-  
+      newtasks:{
+        id:Math.random(),
+        action:this.state.newtasks.action,
+        isDone:true
+      }
   })
   }else{
     Swal.fire('add fucnking todo ')
