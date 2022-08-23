@@ -1,11 +1,13 @@
 import React from 'react'
-
-export const Todo = ({comp,task,del}) => {
+import { useDispatch } from 'react-redux'
+import {del,comp} from './redux/actions'
+export const Todo = ({task}) => {
+  const dispatch=useDispatch()
   return (
     <div className={task.isDone?"complete":""}>
         <h1>{task.action}</h1>
-        <button onClick={()=>{del(task.id)}}>delete</button>
-        <button onClick={()=>{comp(task.id)}}>{task.isDone?"undo":"complete"}</button>
+        <button onClick={()=>dispatch(del(task.id))}>delete</button>
+        <button onClick={()=>dispatch(comp(task.id))}>{task.isDone?"undo":"complete"}</button>
     </div>
   )
 }

@@ -1,11 +1,14 @@
 import React from 'react'
 import { Todo } from './Todo'
+import { useSelector } from 'react-redux'
 
-export const Todolist = ({comp,tasks,del}) => {
+export const Todolist = () => {
+  const state=useSelector(state=>state)
+  console.log('rani state',state);
   return (
 
     <div>
-        {tasks.map(el=><Todo comp={comp} del={del} task={el} key={el.id}/>)}
+        {state.map(el=><Todo   task={el} key={el.id}/>)}
     </div>
   )
 }
